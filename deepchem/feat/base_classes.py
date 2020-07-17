@@ -288,30 +288,6 @@ class StructureFeaturizer(Featurizer):
     features = np.asarray(features)
     return features
 
-  def _featurize(self, structure: "pymatgen.Structure"):  # type: ignore
-    """Calculate features for a single crystal structure.
-
-    Parameters
-    ----------
-    structure: pymatgen.Structure object
-      Structure object with 3D coordinates and periodic lattice.
-
-    """
-
-    raise NotImplementedError('Featurizer is not defined.')
-
-  def __call__(self, structures: Iterable[dict]):
-    """Calculate features for crystal structures.
-
-    Parameters
-    ----------
-    structures: Iterable[dict]
-      An iterable of crystal structure dictionaries.
-
-    """
-
-    return self.featurize(structures)
-
 
 class CompositionFeaturizer(Featurizer):
   """
@@ -378,30 +354,6 @@ class CompositionFeaturizer(Featurizer):
 
     features = np.asarray(features)
     return features
-
-  def _featurize(self, composition: "pymatgen.Composition"):  # type: ignore
-    """Calculate features for a single crystal composition.
-
-    Parameters
-    ----------
-    composition: pymatgen.Composition object
-      Composition object for 3D inorganic crystal.
-
-    """
-
-    raise NotImplementedError('Featurizer is not defined.')
-
-  def __call__(self, compositions: Iterable[str]):
-    """Calculate features for crystal compositions.
-
-    Parameters
-    ----------
-    compositions: Iterable[str]
-      An iterable of crystal compositions.
-
-    """
-
-    return self.featurize(compositions)
 
 
 class UserDefinedFeaturizer(Featurizer):
